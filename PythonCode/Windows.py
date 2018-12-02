@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 import pygame
 import time
+import trigger_email
 
 #if you get error while importing the google how to install <Package Name> in python 3.6
 
@@ -51,6 +52,7 @@ while (True):
     print ("Detecting " + str(len(cnts)) + " Moving Objects")
     if len(cnts) > 0:
         cameraSound.play()
+        trigger_email.send_email()
 
     for c in cnts:
         if cv2.contourArea(c) < 1500:
